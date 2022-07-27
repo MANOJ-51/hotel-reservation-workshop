@@ -2,7 +2,6 @@ package com.bridgelabz;
 
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -14,11 +13,11 @@ public class HotelReservation {
         System.out.println("welcome to Hotel Reservation");
 
 
-        HotelData lakeWood = new HotelData("lakeWood", 110.00);
+        HotelData lakeWood = new HotelData("lakeWood", 110.00, 90.00);
         hotelDataList.add(lakeWood);
-        HotelData bridgeWood = new HotelData("bridgeWood", 160.00);
+        HotelData bridgeWood = new HotelData("bridgeWood", 150.00, 50.00);
         hotelDataList.add(bridgeWood);
-        HotelData ridgeWood = new HotelData("ridgeWood", 220.00);
+        HotelData ridgeWood = new HotelData("ridgeWood", 220.00, 150.00);
         hotelDataList.add(ridgeWood);
 
         hotelDataList.forEach(output -> System.out.println(output));
@@ -32,11 +31,11 @@ public class HotelReservation {
         LocalDate checkInDate = LocalDate.parse(bookingFromDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         LocalDate checkOutDate = LocalDate.parse(leavingDate, DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
         int stayingDays = checkOutDate.getDayOfMonth() - checkInDate.getDayOfMonth() + 1;
-        Optional<HotelData> cheapestHotel = hotelDataList.stream().sorted(Comparator.comparing(HotelData::getHotelRates)).findFirst();
+        Optional<HotelData> cheapestHotel = hotelDataList.stream().sorted(Comparator.comparing(HotelData::getWeekdayRates)).findFirst();
 
         HotelData hotelData = new HotelData();
         hotelData.setHotelName(cheapestHotel.get().getHotelName());
-        hotelData.setTotalPrice(cheapestHotel.get().getHotelRates() * stayingDays);
+        hotelData.setTotalPrice(cheapestHotel.get().getWeekdayRates() * stayingDays);
         System.out.println("Hotel Name " + hotelData.getHotelName());
         System.out.println("Total price for : " + stayingDays + " days is " + hotelData.getTotalPrice());
     }

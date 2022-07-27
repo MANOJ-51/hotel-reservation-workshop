@@ -2,16 +2,17 @@ package com.bridgelabz;
 
 public class HotelData {
     String hotelName;
-    double hotelRates;
-
+    double weekdayRates;
+    double weekendRates;
     double totalPrice;
 
     public HotelData() {
     }
 
-    public HotelData(String hotelName, double hotelRates) {
+    public HotelData(String hotelName, double weekdayRates, double weekendRates) {
         this.hotelName = hotelName;
-        this.hotelRates = hotelRates;
+        this.weekdayRates = weekdayRates;
+        this.weekendRates = weekendRates;
     }
 
     public String getHotelName() {
@@ -22,12 +23,20 @@ public class HotelData {
         this.hotelName = hotelName;
     }
 
-    public double getHotelRates() {
-        return hotelRates;
+    public double getWeekdayRates() {
+        return weekdayRates;
     }
 
-    public void setHotelRates(double hotelRates) {
-        this.hotelRates = hotelRates;
+    public void setWeekdayRates(double weekdayRates) {
+        this.weekdayRates = weekdayRates;
+    }
+
+    public double getWeekendRates() {
+        return weekendRates;
+    }
+
+    public void setWeekendRates(double weekendRates) {
+        this.weekendRates = weekendRates;
     }
 
     public double getTotalPrice() {
@@ -42,7 +51,8 @@ public class HotelData {
     public String toString() {
         return "HotelData{" +
                 "hotelName='" + hotelName + '\'' +
-                ", hotelRates=" + hotelRates +
+                ", weekdayRates=" + weekdayRates +
+                ", weekendRates=" + weekendRates +
                 ", totalPrice=" + totalPrice +
                 '}';
     }
