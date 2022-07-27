@@ -12,11 +12,11 @@ public class HotelReservation {
         System.out.println("welcome to Hotel Reservation");
 
 
-        HotelData lakeWood = new HotelData("lakeWood", 110.00, 90.00);
+        HotelData lakeWood = new HotelData("lakeWood", 110.00, 90.00, 3);
         hotelDataList.add(lakeWood);
-        HotelData bridgeWood = new HotelData("bridgeWood", 150.00, 50.00);
+        HotelData bridgeWood = new HotelData("bridgeWood", 150.00, 50.00, 4);
         hotelDataList.add(bridgeWood);
-        HotelData ridgeWood = new HotelData("ridgeWood", 220.00, 150.00);
+        HotelData ridgeWood = new HotelData("ridgeWood", 220.00, 150.00, 5);
         hotelDataList.add(ridgeWood);
 
         hotelDataList.forEach(output -> System.out.println(output));
